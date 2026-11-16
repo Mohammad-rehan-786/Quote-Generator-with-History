@@ -1,0 +1,436 @@
+/* ==========================================================================
+   QUOTEVAULT — DESIGN SYSTEM & GLOBAL CSS
+   Theme: Midnight Aurora (Dark) & Aurora Dawn (Light)
+   ========================================================================== */
+
+:root {
+  /* Midnight Aurora Palette (Dark - Default) */
+  --bg-primary: #070a12;
+  --bg-secondary: #0b1120;
+  --bg-card: rgba(15, 23, 42, 0.7);
+  --bg-card-hover: rgba(30, 41, 59, 0.8);
+  --bg-input: rgba(15, 23, 42, 0.85);
+  --bg-badge: rgba(99, 102, 241, 0.15);
+  --bg-glass-nav: rgba(7, 10, 18, 0.75);
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-glow: rgba(139, 92, 246, 0.4);
+  --border-cyan-glow: rgba(6, 182, 212, 0.4);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: #38bdf8;
+  --text-author: #e2e8f0;
+
+  /* Aurora Accent Gradients */
+  --aurora-1: #8b5cf6; /* Violet */
+  --aurora-2: #3b82f6; /* Electric Blue */
+  --aurora-3: #06b6d4; /* Cyan */
+  --aurora-4: #ec4899; /* Pink / Rose */
+
+  --gradient-aurora: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #06b6d4 100%);
+  --gradient-aurora-hover: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #0891b2 100%);
+  --gradient-text: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #38bdf8 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.35));
+  
+  /* Shadow & Glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 30px -5px rgba(139, 92, 246, 0.25), 0 0 20px -5px rgba(6, 182, 212, 0.2);
+  --shadow-glow-cyan: 0 0 25px -4px rgba(6, 182, 212, 0.35);
+
+  /* Status Colors */
+  --status-success: #10b981;
+  --status-success-bg: rgba(16, 185, 129, 0.15);
+  --status-warning: #f59e0b;
+  --status-warning-bg: rgba(245, 158, 11, 0.15);
+  --status-danger: #ef4444;
+  --status-danger-bg: rgba(239, 68, 68, 0.15);
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-quote: 'Playfair Display', Georgia, serif;
+  --font-display: 'Outfit', var(--font-sans);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme: Aurora Dawn */
+[data-theme='light'] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #edf2f7;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-input: rgba(255, 255, 255, 0.9);
+  --bg-badge: rgba(99, 102, 241, 0.1);
+  --bg-glass-nav: rgba(248, 250, 252, 0.85);
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.14);
+  --border-glow: rgba(99, 102, 241, 0.3);
+  --border-cyan-glow: rgba(14, 165, 233, 0.3);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-accent: #0284c7;
+  --text-author: #1e293b;
+
+  --gradient-text: linear-gradient(135deg, #6366f1 0%, #2563eb 50%, #0284c7 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(14, 165, 233, 0.25));
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 40px -8px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 25px -4px rgba(99, 102, 241, 0.15);
+  --shadow-glow-cyan: 0 0 25px -4px rgba(14, 165, 233, 0.15);
+}
+
+/* ==========================================================================
+   Base & Resets
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--aurora-1);
+}
+
+/* Accessible Focus Styling */
+:focus-visible {
+  outline: 2px solid var(--aurora-3);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Aurora Background Mesh (Subtle, elegant ambient animations)
+   ========================================================================== */
+.aurora-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.22;
+  animation: floatOrb 20s infinite ease-in-out alternate;
+}
+
+[data-theme='light'] .aurora-orb {
+  opacity: 0.12;
+  filter: blur(120px);
+}
+
+.aurora-orb-1 {
+  top: -15%;
+  left: 20%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, var(--aurora-1) 0%, transparent 70%);
+  animation-duration: 22s;
+}
+
+.aurora-orb-2 {
+  top: 30%;
+  right: -10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, var(--aurora-2) 0%, transparent 70%);
+  animation-duration: 28s;
+  animation-delay: -5s;
+}
+
+.aurora-orb-3 {
+  bottom: -20%;
+  left: 10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--aurora-3) 0%, transparent 70%);
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+.aurora-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(var(--border-subtle) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+  100% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
+}
+
+/* ==========================================================================
+   Global Utility Classes & Micro-components
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphism Surface */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glow);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Button Reset & Base */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary Button with Aurora Glow */
+.btn-primary {
+  background: var(--gradient-aurora);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+  gap: 0.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--gradient-aurora-hover);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Secondary Button / Glass Button */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-md);
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-medium);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+[data-theme='light'] .btn-secondary {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='light'] .btn-secondary:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+}
+
+/* Icon Button */
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-glow);
+  transform: translateY(-1px);
+}
+
+.btn-icon.active {
+  color: #ec4899;
+  background: rgba(236, 72, 153, 0.15);
+  border-color: rgba(236, 72, 153, 0.4);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-aurora {
+  background: var(--bg-badge);
+  color: var(--aurora-1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+[data-theme='light'] .badge-aurora {
+  color: #6366f1;
+}
+
+.badge-fallback {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-api {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
